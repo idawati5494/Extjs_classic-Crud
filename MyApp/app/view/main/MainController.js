@@ -1,0 +1,82 @@
+/**
+ * This class is the controller for the main view for the application. It is specified as
+ * the "controller" of the Main view class.
+ *
+ * TODO - Replace this content of this view to suite the needs of your application.
+ */
+Ext.define('MyApp.view.main.MainController', {
+    extend: 'Ext.app.ViewController',
+
+    alias: 'controller.main',
+
+    onAddClick : function (button, event){
+        var list = button.up('mainlist');
+        let store = list.getStore();
+        // location.reload();
+        let rowediting = list.getPlugin();
+        store.setAutoSync(false);
+        var record = {
+    //         id : i ,
+    //         function makeArray (count, content){
+    //             var result = [];
+    //             if (typeof content == "function"){
+    //                 for (var i = 0; i < count; 1++){
+    //                     result.push(content(i));
+    //                 }
+    //              } else {
+    //                 for (var i = 0; i < count; i++){
+    //                         result.push(content);
+    //                 }
+    //             }
+    //             return result;
+    //  },
+            
+            name : "",
+            belt:"",
+            special_power:"",
+        }; 
+        var model = store.getModel();
+        record= new model(record);
+        store.insert(0, record);
+        // console.log(rowediting)
+        rowediting.startEdit(record, 0);
+        store.setAutoSync(true);
+    },
+
+  
+
+
+    onItemSelected: function (sender, record){
+        var button = Ext.ComponentQuery.query('button#delete')[0];
+        // console.log(button);
+        button.enable(true)
+    },
+    onRemoveClick:function(button, grid, rowIndex, collIndex){
+        if (grid){
+            var grid = button.up('mainlist');
+            var model = grid.getStore().getAt(rowIndex);
+            
+
+        if(!model){
+            Ext.Msg.alert('Info', 'No Record Selected');
+             }
+            Ext.Msg.confirm('Remove Record', 'yakin mau menghapus?',
+            function (button){
+                if(button == 'yes'){
+                    var model = grid.getSelectionModel().getSelection();
+                    grid.store.remove (model);
+                    grid.store.sync()
+
+                 }
+            });
+
+        }
+
+    }
+
+        // onConfirm: function (choice) {
+        //     if (choice === 'yes') {
+        //         //
+        //     }
+   
+});
