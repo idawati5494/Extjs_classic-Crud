@@ -3,24 +3,17 @@ Ext.define('MyApp.store.Personnel', {
     
     alias: 'store.personnel',
     autoLoad: true,
-    autoSync: true,
+    autoSync: true, //untuk memastikan frontend dan backend sync selalu
     fields: [
         'id', 'name', 'belt', 'special_power', 'created_at', 'updated_at'
     ],
-
-   
-
     proxy: {
-        type: 'jsonp',
-        api: {
-            read: "http://localhost/belajar_extjs6/MyApp_php/readSport.php",
-            update: "http://localhost/belajar_extjs6/MyApp_php/update.php",
-            create: "http://localhost/belajar_extjs6/MyApp_php/create.php",
-            destroy: "http://localhost/belajar_extjs6/MyApp_php/destroy.php"
-        },
+        type: 'rest',
+        url:'http://localhost/Belajar_laravel/public/api/ninjas',
+
         reader: {
             type: 'json',
-            rootProperty: 'items'
+            rootProperty: 'data'
         }
     }
 });

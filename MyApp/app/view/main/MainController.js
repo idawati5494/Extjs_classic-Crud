@@ -16,21 +16,6 @@ Ext.define('MyApp.view.main.MainController', {
         let rowediting = list.getPlugin();
         store.setAutoSync(false);
         var record = {
-    //         id : i ,
-    //         function makeArray (count, content){
-    //             var result = [];
-    //             if (typeof content == "function"){
-    //                 for (var i = 0; i < count; 1++){
-    //                     result.push(content(i));
-    //                 }
-    //              } else {
-    //                 for (var i = 0; i < count; i++){
-    //                         result.push(content);
-    //                 }
-    //             }
-    //             return result;
-    //  },
-            
             name : "",
             belt:"",
             special_power:"",
@@ -44,10 +29,7 @@ Ext.define('MyApp.view.main.MainController', {
         rowediting.startEdit(record, 0);
         store.setAutoSync(true);
     },
-
-  
-
-
+    
     onItemSelected: function (sender, record){
         var button = Ext.ComponentQuery.query('button#delete')[0];
         // console.log(button);

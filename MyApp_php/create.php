@@ -27,7 +27,7 @@
     }
     if ($callback){
         header('Content-Type: text/javascript');
-        echo $callback .'({"success":'.$success.', "items":'. json_encode($output).'});';
+        echo $callback .'({"success": '.$success.', "items": '. json_encode($output). '});';
     }else {
         header('Content-Type:application/x-json');
         echo json_encode($output);
