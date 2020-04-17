@@ -13,12 +13,11 @@
     $name = $records->{"name"};
     $belt = $records->{"belt"};
     $special_power =  $records->{"special_power"};
-    // $created_at = $record->{"created_at"};
-    // $updated_at = $record->{"updated at"};
+   
 
     $uotput = array();
     $success ='false';
-    $query ="insert into ninjas (name,belt,special_power,created_at, updated_at) values ('$name', '$belt', '$special_power')";
+    $query ="insert into ninjas (name,belt,special_power) values ('$name', '$belt', '$special_power')";
     if ($conn->query($query) === TRUE) {
         $success = 'true';
     }

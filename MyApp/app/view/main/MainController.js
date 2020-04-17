@@ -34,6 +34,8 @@ Ext.define('MyApp.view.main.MainController', {
             name : "",
             belt:"",
             special_power:"",
+            created_at: Date(),
+            updated_at: Date(),
         }; 
         var model = store.getModel();
         record= new model(record);
@@ -57,9 +59,9 @@ Ext.define('MyApp.view.main.MainController', {
             var model = grid.getStore().getAt(rowIndex);
             
 
-        if(!model){
-            Ext.Msg.alert('Info', 'No Record Selected');
-             }
+        // if(!model){
+        //     Ext.Msg.alert('Info', 'No Record Selected');
+        //      }
             Ext.Msg.confirm('Remove Record', 'yakin mau menghapus?',
             function (button){
                 if(button == 'yes'){
