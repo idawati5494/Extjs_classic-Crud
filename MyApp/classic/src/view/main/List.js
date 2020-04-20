@@ -14,6 +14,7 @@ Ext.define('MyApp.view.main.List', {
     store: {
         type: 'personnel'
     },
+    
 
     plugins:{
         ptype:'rowediting'
@@ -27,6 +28,10 @@ Ext.define('MyApp.view.main.List', {
         { text: 'Created_at', dataIndex: 'created_at',width: 150 },
         { text: 'Updated_at', dataIndex: 'updated_at',width:150 },
     ],
+    bbar: {
+        xtype: 'pagingtoolbar',
+        displayInfo: true
+    },
     tbar: [{
         xtype:'button',
         text:'Add',
@@ -42,7 +47,15 @@ Ext.define('MyApp.view.main.List', {
         disabled: true,
         id:'delete'
         
-    }],
+    },
+    // {
+    //     xtype: 'search',
+    //     label: 'Query',
+    //     name: 'query'
+    // }
+    
+],
+
 
     listeners: {
         select: 'onItemSelected',

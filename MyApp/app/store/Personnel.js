@@ -1,3 +1,4 @@
+var itemsPerPage = 5;
 Ext.define('MyApp.store.Personnel', {
     extend: 'Ext.data.Store',
     
@@ -7,6 +8,7 @@ Ext.define('MyApp.store.Personnel', {
     fields: [
         'id', 'name', 'belt', 'special_power', 'created_at', 'updated_at'
     ],
+    pageSize: itemsPerPage, 
     proxy: {
         type: 'rest',
         url:'http://localhost/Belajar_laravel/public/api/ninjas',
@@ -16,4 +18,11 @@ Ext.define('MyApp.store.Personnel', {
             rootProperty: 'data'
         }
     }
+    
 });
+// store.load({
+//     params: {
+//         start: 0,
+//         limit: itemsPerPage
+//     }
+// });

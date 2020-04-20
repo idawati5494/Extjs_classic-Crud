@@ -20,6 +20,7 @@ Ext.define('MyApp.view.main.Main', {
 
     controller: 'main',
     viewModel: 'main',
+    plugins: 'viewport',
 
     ui: 'navigation',
 

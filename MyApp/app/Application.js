@@ -21,8 +21,13 @@ Ext.define('MyApp.Application', {
 
     launch: function () {
         // TODO - Launch the application
+        var loggedIn;
+        loggedIn = localStorage.getItem("LoggedIn");
+    
+        Ext.create({
+            xtype: loggedIn ? 'app-main' :'login'
+        });
     },
-
     onAppUpdate: function () {
         Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
             function (choice) {

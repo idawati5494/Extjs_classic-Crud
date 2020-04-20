@@ -9,6 +9,15 @@ Ext.define('MyApp.view.main.MainController', {
 
     alias: 'controller.main',
 
+    onClickButton: function(){
+        localStorage.removeItem('LoggedIn');
+        this.getView().destroy();
+        Ext.create({
+            xtype:'login'
+        })
+    },
+        
+
     onAddClick : function (button, event){
         var list = button.up('mainlist');
         let store = list.getStore();
