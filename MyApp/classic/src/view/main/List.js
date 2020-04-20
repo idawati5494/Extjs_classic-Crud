@@ -16,15 +16,20 @@ Ext.define('MyApp.view.main.List', {
     },
     
 
-    plugins:{
-        ptype:'rowediting'
-    },
+    plugins:[
+        {ptype:'rowediting'},
+        {ptype: 'gridfilters'}
+    ],
 
     columns: [
         // {text: 'Id', dataIndex: 'id' },
-        { text: 'Name',  dataIndex: 'name',width: 150, editor:'textfield'},
+        { text: 'Name',  dataIndex: 'name',width: 150, editor:'textfield',
+        filter: {
+            type: 'string'
+        }
+        },
         { text: 'Belt', dataIndex: 'belt', editor:'textfield' },
-        { text: 'Special_power', dataIndex: 'special_power', editor:'textfield' },
+        { text: 'Special_power', dataIndex: 'special_power', editor:'textfield'},
         { text: 'Created_at', dataIndex: 'created_at',width: 150 },
         { text: 'Updated_at', dataIndex: 'updated_at',width:150 },
     ],
